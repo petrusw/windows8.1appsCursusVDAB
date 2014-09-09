@@ -1,13 +1,18 @@
-﻿<Page
-    x:Class="ResourcesAndStyles.MainPage"
+﻿<Page x:Class="ResourcesAndStyles.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ResourcesAndStyles"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    </Grid>
+   
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button Style="{StaticResource GroeneKnop}"  
+                FontFamily="{StaticResource fontFamily}"  
+                FontSize="{StaticResource fontSize}"  
+                Content="{StaticResource tekst}" />
+        <Button Content="Beta"></Button>
+        <Button Content="Gamma"></Button>
+        <Button Content="Delta"></Button>
+    </StackPanel>
 </Page>
