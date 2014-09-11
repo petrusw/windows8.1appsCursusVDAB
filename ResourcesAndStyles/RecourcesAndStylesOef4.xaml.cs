@@ -20,13 +20,11 @@ namespace ResourcesAndStyles
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class RecourcesAndStylesOef4 : Page
     {
-       
-        public MainPage()
+        public RecourcesAndStylesOef4()
         {
             this.InitializeComponent();
-           
         }
     }
 }
