@@ -153,6 +153,14 @@
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\marcel.jpg" />
     <Content Include="Assets\obelix.jpg" />
+    <Content Include="Assets\potloodbadgelogo.png" />
+    <Content Include="Assets\potloodbigtile.jpg" />
+    <Content Include="Assets\potloodlivetile.jpg" />
+    <Content Include="Assets\potloodnormaltile.jpg" />
+    <Content Include="Assets\potloodsmalllogo.jpg" />
+    <Content Include="Assets\potloodsmalltile.jpg" />
+    <Content Include="Assets\potloodstorelogo.jpg" />
+    <Content Include="Assets\potloodwidetile.jpg" />
     <Content Include="Assets\schanulleke.jpg" />
     <Content Include="Assets\sidonia.jpg" />
     <Content Include="Assets\SmallLogo.scale-100.png" />

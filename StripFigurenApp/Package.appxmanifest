@@ -1,38 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-
-  <Identity Name="e06357e3-fc92-458a-ab5b-c4f4343c0b16"
-            Publisher="CN=ward"
-            Version="1.0.0.0" />
-
+  <Identity Name="e06357e3-fc92-458a-ab5b-c4f4343c0b16" Publisher="CN=ward" Version="1.0.0.0" />
   <Properties>
     <DisplayName>StripFigurenApp</DisplayName>
     <PublisherDisplayName>ward</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
+    <Logo>Assets\potloodstorelogo.jpg</Logo>
   </Properties>
-
   <Prerequisites>
     <OSMinVersion>6.3.0</OSMinVersion>
     <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
   </Prerequisites>
-
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-        Executable="$targetnametoken$.exe"
-        EntryPoint="StripFigurenApp.App">
-        <m2:VisualElements
-            DisplayName="StripFigurenApp"
-            Square150x150Logo="Assets\Logo.png"
-            Square30x30Logo="Assets\SmallLogo.png"
-            Description="StripFigurenApp"
-            ForegroundText="light"
-            BackgroundColor="#464646">
-            <m2:SplashScreen Image="Assets\SplashScreen.png" />
-        </m2:VisualElements>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="StripFigurenApp.App">
+      <m2:VisualElements DisplayName="StripFigurenApp" Square150x150Logo="Assets\potloodnormaltile.jpg" Square30x30Logo="Assets\potloodsmalllogo.jpg" Description="StripFigurenApp" ForegroundText="light" BackgroundColor="#464646">
+        <m2:DefaultTile Square70x70Logo="Assets\potloodsmalltile.jpg" Square310x310Logo="Assets\potloodbigtile.jpg" Wide310x150Logo="Assets\potloodwidetile.jpg">
+        </m2:DefaultTile>
+        <m2:SplashScreen Image="Assets\SplashScreen.png" />
+      </m2:VisualElements>
     </Application>
   </Applications>
   <Capabilities>
