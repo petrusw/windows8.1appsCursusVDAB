@@ -7,7 +7,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.TopAppBar>
+        <AppBar>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
 
-    </Grid>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <AppBarButton Label="Vorige" Icon="Previous" Click="Previous_Click"/>
+                    <AppBarButton Label="Volgende" Icon="Next" Click="Next_Click"/>
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.TopAppBar>
+    <Frame x:Name="MainFrame"></Frame>
 </Page>

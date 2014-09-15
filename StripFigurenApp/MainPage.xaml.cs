@@ -25,6 +25,21 @@ namespace StripFigurenApp
         public MainPage()
         {
             this.InitializeComponent();
+            MainFrame.Navigate(typeof(Home));
+        }
+
+       
+
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoForward)
+                MainFrame.GoForward();
+        }
+
+        private void Previous_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoBack)
+                MainFrame.GoBack();
         }
     }
 }
