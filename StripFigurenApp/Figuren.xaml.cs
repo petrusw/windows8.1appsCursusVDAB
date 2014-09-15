@@ -24,12 +24,19 @@ namespace StripFigurenApp
     public sealed partial class Figuren : Page 
     {
         private ObservableCollection<StripFiguur> Helden = new ObservableCollection<StripFiguur>();
+        private CollectionViewSource StripFiguurCollectie = new CollectionViewSource
+        {
+            IsSourceGrouped=true,
+            ItemsPath = new PropertyPath("Figuren")
+        };
         public Figuren()
         {
             this.InitializeComponent();
       
      Helden.Add(new StripFiguur { 
-          Naam = "Asterix", Email = "asterix@armorica.ga", 
+          Reeks="Asterix",
+         Naam = "Asterix", 
+          Email = "asterix@armorica.ga", 
           // volgens de cursus moet het op deze manier maar dit kan niet volgens microsoft !!! 
             //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/Asterix.jpg",  
             //  UriKind.RelativeOrAbsolute)) 
@@ -39,6 +46,7 @@ namespace StripFigurenApp
 
      Helden.Add(new StripFiguur
      {
+         Reeks = "Asterix",
          Naam = "Obelix",
          Email = "obelix@armorica.ga",
          Prentje = new BitmapImage(new Uri(this.BaseUri,"Assets/obelix.jpg"
@@ -47,6 +55,7 @@ namespace StripFigurenApp
 
      Helden.Add(new StripFiguur
      {
+         Reeks = "Suske & Wiske",
          Naam = "Suske",
          Email = "suske@standaard.be",
          Prentje = new BitmapImage(new Uri(this.BaseUri,"Assets/suske.jpg"))
@@ -54,6 +63,8 @@ namespace StripFigurenApp
 
      Helden.Add(new StripFiguur
      {
+         Reeks = "Suske & Wiske",
+
          Naam = "Wiske",
          Email = "wiske@standaard.be",
          Prentje = new BitmapImage(new Uri(this.BaseUri, "Assets/wiske.jpg"))
@@ -61,6 +72,8 @@ namespace StripFigurenApp
 
      Helden.Add(new StripFiguur
      {
+         Reeks = "Suske & Wiske",
+
          Naam = "Lambik",
          Email = "Lambik@standaard.be",
          Prentje = new BitmapImage(new Uri(this.BaseUri, "Assets/lambik.jpg"))
@@ -68,6 +81,8 @@ namespace StripFigurenApp
 
      Helden.Add(new StripFiguur
      {
+         Reeks = "Suske & Wiske",
+
          Naam = "Sidonia",
          Email = "Sidonia@standaard.be",
          Prentje = new BitmapImage(new Uri(this.BaseUri, "Assets/sidonia.jpg"))
@@ -75,6 +90,8 @@ namespace StripFigurenApp
 
      Helden.Add(new StripFiguur
      {
+         Reeks = "Kiekeboe",
+
          Naam = "Marcel",
          Email = "Marcel@kiekeboe.be",
          Prentje = new BitmapImage(new Uri(this.BaseUri, "Assets/marcel.jpg"))
@@ -82,6 +99,8 @@ namespace StripFigurenApp
 
      Helden.Add(new StripFiguur
      {
+         Reeks = "Kiekeboe",
+
          Naam = "Fanny",
          Email = "Fanny@kiekeboe.be",
          Prentje = new BitmapImage(new Uri(this.BaseUri, "Assets/fanny.jpg"))
@@ -89,38 +108,44 @@ namespace StripFigurenApp
 
      Helden.Add(new StripFiguur
      {
+         Reeks = "Kiekeboe",
+
          Naam = "Konstantinopel",
          Email = "Konstantinopel@kiekeboe.be",
          Prentje = new BitmapImage(new Uri(this.BaseUri, "Assets/konstantinopel.jpg"))
      });
+     var groupedFiguren = Helden.GroupBy(x => x.Reeks).Select(x => new StripReeks { ReeksNaam = x.Key, Figuren = x.ToList() });
       //StripListView.ItemsSource = Helden;
-      StripGridView.ItemsSource = Helden;
+     GroupedFigurenGridView.ItemsSource = Helden;
+      StripFiguurCollectie.Source = groupedFiguren.ToList();
+      GroupedFigurenGridView.ItemsSource = StripFiguurCollectie.View;
+      GroupsGridView.ItemsSource = StripFiguurCollectie.View.CollectionGroups;
         }
 
-        private void StripGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (StripGridView.SelectedIndex >=0)
-            {
-                ButtonVerwijderen.Visibility = Visibility.Visible;
-                GeselecteerdeFiguur.Text = String.Format("Geselecteerde figuur : {0} ({1})",
-                ((StripFiguur)e.AddedItems[0]).Naam, ((StripFiguur)e.AddedItems[0]).Email); 
-            }
-            else
-            {
-                GeselecteerdeFiguur.Text = string.Empty;
-                ButtonVerwijderen.Visibility = Visibility.Collapsed;
-            }
-        }
+        //private void StripGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (StripGridView.SelectedIndex >=0)
+        //    {
+        //        ButtonVerwijderen.Visibility = Visibility.Visible;
+        //        GeselecteerdeFiguur.Text = String.Format("Geselecteerde figuur : {0} ({1})",
+        //        ((StripFiguur)e.AddedItems[0]).Naam, ((StripFiguur)e.AddedItems[0]).Email); 
+        //    }
+        //    else
+        //    {
+        //        GeselecteerdeFiguur.Text = string.Empty;
+        //        ButtonVerwijderen.Visibility = Visibility.Collapsed;
+        //    }
+        //}
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (StripGridView.SelectedIndex >=0)
-            {
-                GeselecteerdeFiguur.Text = string.Empty;
-                Helden.RemoveAt(StripGridView.SelectedIndex);
-                ButtonVerwijderen.Visibility = Visibility.Collapsed;
-            }
-        }
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (StripGridView.SelectedIndex >=0)
+        //    {
+        //        GeselecteerdeFiguur.Text = string.Empty;
+        //        Helden.RemoveAt(StripGridView.SelectedIndex);
+        //        ButtonVerwijderen.Visibility = Visibility.Collapsed;
+        //    }
+        //}
         
     }
 }

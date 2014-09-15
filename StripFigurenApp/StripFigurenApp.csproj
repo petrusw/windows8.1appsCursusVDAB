@@ -111,11 +111,15 @@
     <Compile Include="Figuren.xaml.cs">
       <DependentUpon>Figuren.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FiguurDetails.xaml.cs">
+      <DependentUpon>FiguurDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StripFiguur.cs" />
+    <Compile Include="StripReeks.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -148,6 +152,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Figuren.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FiguurDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

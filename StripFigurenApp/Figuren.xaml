@@ -7,30 +7,50 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Resources>
-        <Style x:Key="FiguurNaamStyle" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Segoe UI Light" />
-            <Setter Property="FontSize" Value="18" />
-        </Style>
-        <Style x:Key="FiguurEmailStyle" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Segoe UI Light" />
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="FontStyle" Value="Italic" />
-        </Style>
         <DataTemplate x:Key="FiguurTemplate">
-            <StackPanel Orientation="Horizontal" Margin="10">
-                <Image Source="{Binding Prentje}"  
-                       Height="60" Width="60" Margin="0,0,10,0"/>
-                <StackPanel Margin="0,0,0,0" Orientation="Vertical" 
-                            VerticalAlignment="Center">
-                    <TextBlock TextWrapping="Wrap" Text="{Binding Naam}" 
-                               Style="{StaticResource FiguurNaamStyle}"/>
-                    <TextBlock TextWrapping="Wrap" Text="{Binding Email}" 
-                               Style="{StaticResource FiguurEmailStyle}"/>
-                </StackPanel>
-            </StackPanel>
+            <local:FiguurDetails/>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="GridViewItemsPanel">
+            <StackPanel Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+        <DataTemplate x:Key="ZoomedOutTemplate">
+            <TextBlock Text="{Binding Group.ReeksNaam}" Margin="10"
+FontFamily="Segoe UI Light" Width="300"
+FontSize="25" Foreground="White"/>
         </DataTemplate>
     </Page.Resources>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <SemanticZoom>
+            <SemanticZoom.ZoomedOutView>
+                <GridView x:Name="GroupsGridView"
+VerticalAlignment="Center" HorizontalAlignment="Center"
+BorderBrush="White" BorderThickness="2"
+ItemTemplate="{StaticResource ZoomedOutTemplate}" />
+            </SemanticZoom.ZoomedOutView>
+            <SemanticZoom.ZoomedInView>
+                <GridView x:Name="GroupedFigurenGridView" SelectionMode="Single"
+        VerticalAlignment="Center" HorizontalAlignment="Center"
+        ItemTemplate="{StaticResource FiguurTemplate}"
+        ItemsPanel="{StaticResource GridViewItemsPanel}"
+        BorderBrush="White" BorderThickness="2"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+        ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                    <GridView.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text='{Binding ReeksNaam}' Foreground="White"
+FontSize="25" Margin="5" />
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </GridView.GroupStyle>
+                </GridView>
+            </SemanticZoom.ZoomedInView>
+        </SemanticZoom>
+       
+    </Grid>
+    <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">-->
         
         <!--<ListView x:Name="StripListView" MaxWidth="400" 
                   VerticalAlignment="Center"
@@ -41,11 +61,11 @@
                   SelectionMode="Multiple"
                   />-->
 
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" 
+        </Grid.RowDefinitions>-->
+        <!--<StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" 
                     HorizontalAlignment="Center">
             <TextBlock x:Name="GeselecteerdeFiguur" Padding="20 0 0 5"  
                    Width="600" Height="50" 
@@ -58,6 +78,10 @@
                   ItemTemplate="{StaticResource FiguurTemplate}" 
                   ScrollViewer.HorizontalScrollBarVisibility="Auto" 
                   BorderBrush="White" BorderThickness="2"  
-                  SelectionChanged="StripGridView_SelectionChanged"/>
-    </Grid>
+                  SelectionChanged="StripGridView_SelectionChanged"/>-->
+        <!--<FlipView x:Name="StripFlipView" Width="400" Height="300" BorderBrush="White"
+                  BorderThickness="2" VerticalAlignment="Center"
+                  ItemTemplate="{StaticResource FiguurTemplate}"></FlipView>-->
+        
+    <!--</Grid>-->
 </Page>
