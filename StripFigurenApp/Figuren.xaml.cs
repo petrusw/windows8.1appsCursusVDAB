@@ -23,7 +23,7 @@ namespace StripFigurenApp
     /// </summary>
     public sealed partial class Figuren : Page 
     {
-        private ObservableCollection<StripFiguur> Helden = new ObservableCollection<StripFiguur>();
+        private List<StripFiguur> Helden = new List<StripFiguur>();
         private CollectionViewSource StripFiguurCollectie = new CollectionViewSource
         {
             IsSourceGrouped=true,
@@ -32,8 +32,7 @@ namespace StripFigurenApp
         public Figuren()
         {
             this.InitializeComponent();
-      
-     Helden.Add(new StripFiguur { 
+            Helden.Add(new StripFiguur { 
           Reeks="Asterix",
          Naam = "Asterix", 
           Email = "asterix@armorica.ga", 
@@ -114,8 +113,42 @@ namespace StripFigurenApp
          Email = "Konstantinopel@kiekeboe.be",
          Prentje = new BitmapImage(new Uri(this.BaseUri, "Assets/konstantinopel.jpg"))
      });
+            Helden.Add(new StripFiguur
+            {
+                Reeks = "Suske en Wiske",
+                Naam = "Barabas",
+                Email = "barabas@standaard.be",
+                Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/Barabas.jpg",
+                UriKind.RelativeOrAbsolute))
+            });
+                Helden.Add(new StripFiguur
+            {
+                Reeks = "Suske en Wiske",
+                Naam = "Schanulleke",
+                Email = "wiske@standaard.be",
+                Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/Schanulleke.jpg",
+                UriKind.RelativeOrAbsolute))
+            });
+            Helden.Add(new StripFiguur
+                {
+                Reeks = "Suske en Wiske",
+                Naam = "Krimson",
+                Email = "krimson@standaard.be",
+                Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/Krimson.jpg",
+                UriKind.RelativeOrAbsolute))
+                });
+            Helden.Add(new StripFiguur
+            {
+                Reeks = "Suske en Wiske",
+                Naam = "Jerom",
+                Email = "rommeke@standaard.be",
+                Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/Jerom.jpg",
+                UriKind.RelativeOrAbsolute))
+            });
+
+
      var groupedFiguren = Helden.GroupBy(x => x.Reeks).Select(x => new StripReeks { ReeksNaam = x.Key, Figuren = x.ToList() });
-      //StripListView.ItemsSource = Helden;
+     //StripListView.ItemsSource = Helden;
      GroupedFigurenGridView.ItemsSource = Helden;
       StripFiguurCollectie.Source = groupedFiguren.ToList();
       GroupedFigurenGridView.ItemsSource = StripFiguurCollectie.View;
@@ -124,11 +157,11 @@ namespace StripFigurenApp
 
         //private void StripGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
-        //    if (StripGridView.SelectedIndex >=0)
+        //    if (StripGridView.SelectedIndex >= 0)
         //    {
         //        ButtonVerwijderen.Visibility = Visibility.Visible;
         //        GeselecteerdeFiguur.Text = String.Format("Geselecteerde figuur : {0} ({1})",
-        //        ((StripFiguur)e.AddedItems[0]).Naam, ((StripFiguur)e.AddedItems[0]).Email); 
+        //        ((StripFiguur)e.AddedItems[0]).Naam, ((StripFiguur)e.AddedItems[0]).Email);
         //    }
         //    else
         //    {
@@ -139,7 +172,7 @@ namespace StripFigurenApp
 
         //private void Button_Click(object sender, RoutedEventArgs e)
         //{
-        //    if (StripGridView.SelectedIndex >=0)
+        //    if (StripGridView.SelectedIndex >= 0)
         //    {
         //        GeselecteerdeFiguur.Text = string.Empty;
         //        Helden.RemoveAt(StripGridView.SelectedIndex);

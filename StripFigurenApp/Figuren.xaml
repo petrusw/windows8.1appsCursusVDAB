@@ -7,8 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Resources>
+        
         <DataTemplate x:Key="FiguurTemplate">
             <local:FiguurDetails/>
+            
+           
+          
         </DataTemplate>
         <ItemsPanelTemplate x:Key="GridViewItemsPanel">
             <StackPanel Orientation="Horizontal" />
@@ -28,7 +32,7 @@ BorderBrush="White" BorderThickness="2"
 ItemTemplate="{StaticResource ZoomedOutTemplate}" />
             </SemanticZoom.ZoomedOutView>
             <SemanticZoom.ZoomedInView>
-                <GridView x:Name="GroupedFigurenGridView" SelectionMode="Single"
+                <GridView x:Name="GroupedFigurenGridView" SelectionMode="Multiple"
         VerticalAlignment="Center" HorizontalAlignment="Center"
         ItemTemplate="{StaticResource FiguurTemplate}"
         ItemsPanel="{StaticResource GridViewItemsPanel}"
