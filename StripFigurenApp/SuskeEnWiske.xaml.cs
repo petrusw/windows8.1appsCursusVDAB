@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using Windows.ApplicationModel.DataTransfer; 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace StripFigurenApp
@@ -29,12 +29,12 @@ namespace StripFigurenApp
         {
             this.InitializeComponent();
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            SuskeEnWiskes = new DataBron().GetStripFiguren().Where(
-                                 s => s.Reeks == "Suske en Wiske").ToList();
-            FiguurGridView.ItemsSource = SuskeEnWiskes;
-        }
+        //protected override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    SuskeEnWiskes = new DataBron().GetStripFiguren().Where(
+        //                         s => s.Reeks == "Suske en Wiske").ToList();
+        //    FiguurGridView.ItemsSource = SuskeEnWiskes;
+        //}
 
         private void Sort_Click(object sender, RoutedEventArgs e)
         {
@@ -74,6 +74,66 @@ namespace StripFigurenApp
             Rect finalRect = new Rect(point, new Size(element.ActualWidth,
                element.ActualHeight));
             return finalRect;
+        } 
+        protected override void OnNavigatedTo(NavigationEventArgs e) 
+        { 
+            SuskeEnWiskes = new DataBron().GetStripFiguren() 
+                .Where(s => s.Reeks == "Suske en Wiske").ToList(); 
+            FiguurGridView.ItemsSource = SuskeEnWiskes; 
+            Info.ContextMenuOpening += Info_ContextMenuOpening; 
+        } 
+        protected override void OnNavigatedFrom(NavigationEventArgs e) 
+        { 
+            Info.ContextMenuOpening -= Info_ContextMenuOpening; 
+        } 
+ 
+        private async void Info_ContextMenuOpening(object sender, ContextMenuEventArgs e) 
+        { 
+            e.Handled = true;
+            TextBox t = (TextBox)sender;
+
+            PopupMenu p = new PopupMenu();
+            p.Commands.Add(new UICommand("Copy", null, 0));
+            p.Commands.Add(new UICommand("Select All", null, 1));
+            p.Commands.Add(new UICommandSeparator());
+            p.Commands.Add(new UICommand("Background gray", null, 2));
+            p.Commands.Add(new UICommand("Background white", null, 3));
+            var selectedCommand = await p.ShowForSelectionAsync(GetTextBoxRect(t));
+
+            if (selectedCommand != null)
+            {
+                String text;
+                DataPackage d;
+
+                switch ((int)selectedCommand.Id)
+                {
+                    case 0: //COPY 
+                        text = t.SelectedText;
+                        d = new DataPackage();
+                        d.SetText(text);
+                        Clipboard.SetContent(d);
+                        break;
+                    case 1: //SELECT ALL 
+                        t.SelectAll();
+                        break;
+                    case 2:
+                        Info.Background = new SolidColorBrush(Colors.LightGray);
+                        break;
+                    case 3:
+                        Info.Background = new SolidColorBrush(Colors.White);
+                        break;
+                }
+
+            } 
+        }
+        private Rect GetTextBoxRect(TextBox t)
+        {
+            Rect temp = t.GetRectFromCharacterIndex(t.SelectionStart, false);
+            GeneralTransform transform = t.TransformToVisual(null);
+            Point point = transform.TransformPoint(new Point());
+            point.X = point.X + temp.X;
+            point.Y = point.Y + temp.Y;
+            return new Rect(point, new Size(temp.Width, temp.Height));
         } 
     }
 }
