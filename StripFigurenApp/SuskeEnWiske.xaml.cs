@@ -134,6 +134,36 @@ namespace StripFigurenApp
             point.X = point.X + temp.X;
             point.Y = point.Y + temp.Y;
             return new Rect(point, new Size(temp.Width, temp.Height));
+        }
+        private async void Info_Click(object sender, RoutedEventArgs e)
+        {
+            MessageDialog m = new MessageDialog(
+                "Dit is de inhoud van de messagedialog", "Titel");
+            m.Commands.Add(new UICommand("Retry",
+                        new UICommandInvokedHandler(CommandHandler)));
+            m.Commands.Add(new UICommand("Ignore",
+                           new UICommandInvokedHandler(CommandHandler)));
+            m.Commands.Add(new UICommand("Cancel",
+                           new UICommandInvokedHandler(CommandHandler)));
+            m.DefaultCommandIndex = 1;
+            m.CancelCommandIndex = 2; 
+            await m.ShowAsync();
+        }
+        private void CommandHandler(IUICommand command)
+        {
+            var commandLabel = command.Label;
+            switch (commandLabel)
+            {
+                case "Retry":
+                    DialogResult.Text = "Please retry...";
+                    break;
+                case "Ignore":
+                    DialogResult.Text = "Please ignore this.";
+                    break;
+                case "Cancel":
+                    DialogResult.Text = "No harm done.";
+                    break;
+            }
         } 
     }
 }

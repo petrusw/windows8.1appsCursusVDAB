@@ -37,6 +37,7 @@ sterk moraliserende ondertoon. Tijdens hun hoogtijdagen hadden de Suske en Wiske
 verhalen een sterke reputatie op het vlak van spannende en inventieve plots.
                 </TextBox.Text>
             </TextBox>
+            <TextBlock x:Name="DialogResult" FontSize="24" Margin="20 0 0 0"/>
         </StackPanel>
     </Grid>
     <Page.BottomAppBar>
@@ -48,6 +49,7 @@ verhalen een sterke reputatie op het vlak van spannende en inventieve plots.
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" 
                             Grid.Column="1" HorizontalAlignment="Right">
+                    <AppBarButton Icon="Message" Label="Boodschap" Click="Info_Click"/>
                     <AppBarButton x:Name="SorteerButton" Icon="Sort" Label="Sorteer">
                         <AppBarButton.Flyout>
                             <MenuFlyout>
