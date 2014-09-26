@@ -22,8 +22,7 @@ namespace StripFigurenApp
                 //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/Asterix.jpg",  
                 //  UriKind.RelativeOrAbsolute)) 
                 // Dit is de juiste manier om dit te doen
-                //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/Asterix.jpg",
-                //  UriKind.RelativeOrAbsolute))
+                Prentje = new BitmapImage(new Uri("ms-appx:///Assets/Asterix.jpg"))
             });
 
             Helden.Add(new StripFiguur
@@ -31,9 +30,7 @@ namespace StripFigurenApp
                 Reeks = "Asterix",
                 Naam = "Obelix",
                 Email = "obelix@armorica.ga",
-                //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/obelix.jpg",
-                //  UriKind.RelativeOrAbsolute
-                //  ))
+                Prentje = new BitmapImage(new Uri("ms-appx:///Assets/obelix.jpg"))
             });
 
             Helden.Add(new StripFiguur
@@ -41,8 +38,8 @@ namespace StripFigurenApp
                 Reeks = "Suske en Wiske",
                 Naam = "Suske",
                 Email = "suske@standaard.be",
-                //Prentje = new BitmapImage(new Uri(,"ms‐appx:///Assets/suske.jpg"
-                 //))
+                Prentje = new BitmapImage(new Uri("ms-appx:///Assets/suske.jpg"
+                 ))
             });
 
             Helden.Add(new StripFiguur
@@ -50,8 +47,7 @@ namespace StripFigurenApp
                 Reeks = "Suske en Wiske",
                 Naam = "Wiske",
                 Email = "wiske@standaard.be",
-                //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/wiske.jpg",
-                //  UriKind.RelativeOrAbsolute))
+                Prentje = new BitmapImage(new Uri("ms-appx:///Assets/wiske.jpg"))
             });
 
             Helden.Add(new StripFiguur
@@ -59,8 +55,7 @@ namespace StripFigurenApp
                 Reeks = "Suske en Wiske",
                 Naam = "Lambik",
                 Email = "Lambik@standaard.be",
-                //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/lambik.jpg",
-                //  UriKind.RelativeOrAbsolute))
+                Prentje = new BitmapImage(new Uri("ms-appx:///Assets/lambik.jpg"))
             });
 
             Helden.Add(new StripFiguur
@@ -68,8 +63,7 @@ namespace StripFigurenApp
                 Reeks = "Suske en Wiske",
                 Naam = "Sidonia",
                 Email = "Sidonia@standaard.be",
-                //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/sidonia.jpg",
-                //  UriKind.RelativeOrAbsolute))
+                Prentje = new BitmapImage(new Uri("ms-appx:///Assets/sidonia.jpg"))
             });
 
             Helden.Add(new StripFiguur
@@ -77,8 +71,7 @@ namespace StripFigurenApp
                 Reeks = "Kiekeboe",
                 Naam = "Marcel",
                 Email = "Marcel@kiekeboe.be",
-                //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/marcel.jpg",
-                //  UriKind.RelativeOrAbsolute))
+                Prentje = new BitmapImage(new Uri("ms-appx:///Assets/marcel.jpg"))
             });
 
             Helden.Add(new StripFiguur
@@ -86,8 +79,7 @@ namespace StripFigurenApp
                 Reeks = "Kiekeboe",
                 Naam = "Fanny",
                 Email = "Fanny@kiekeboe.be",
-                //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/fanny.jpg",
-                //  UriKind.RelativeOrAbsolute))
+                Prentje = new BitmapImage(new Uri("ms-appx:///Assets/fanny.jpg"))
             });
 
             Helden.Add(new StripFiguur
@@ -95,8 +87,7 @@ namespace StripFigurenApp
                 Reeks = "Kiekeboe",
                 Naam = "Konstantinopel",
                 Email = "Konstantinopel@kiekeboe.be",
-                //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/konstantinopel.jpg",
-                //  UriKind.RelativeOrAbsolute))
+                Prentje = new BitmapImage(new Uri("ms-appx:///Assets/konstantinopel.jpg"))
             });
             return Helden;
         }
