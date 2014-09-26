@@ -108,14 +108,31 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Asterix.xaml.cs">
+      <DependentUpon>Asterix.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataBron.cs" />
     <Compile Include="Figuren.xaml.cs">
       <DependentUpon>Figuren.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FiguurDetails.xaml.cs">
+      <DependentUpon>FiguurDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kiekeboe.xaml.cs">
+      <DependentUpon>Kiekeboe.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StripFiguur.cs" />
+    <Compile Include="StripReeks.cs" />
+    <Compile Include="SuskeEnWiske.xaml.cs">
+      <DependentUpon>SuskeEnWiske.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -125,9 +142,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\asterix.jpg" />
+    <Content Include="Assets\asterixreeks.png" />
     <Content Include="Assets\barabas.jpg" />
     <Content Include="Assets\fanny.jpg" />
     <Content Include="Assets\jerom.jpg" />
+    <Content Include="Assets\kiekeboereeks.jpg" />
     <Content Include="Assets\konstantinopel.jpg" />
     <Content Include="Assets\krimson.jpg" />
     <Content Include="Assets\lambik.jpg" />
@@ -140,6 +159,7 @@
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\suske.jpg" />
+    <Content Include="Assets\suskewiskereeks.jpg" />
     <Content Include="Assets\wiske.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -147,13 +167,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Asterix.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Figuren.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FiguurDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kiekeboe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SuskeEnWiske.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

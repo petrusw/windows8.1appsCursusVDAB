@@ -7,6 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Resources>
+        <ItemsPanelTemplate x:Key="GridViewItemsPanel">
+            <StackPanel Orientation="Horizontal" />
+        </ItemsPanelTemplate>
         <Style x:Key="FiguurNaamStyle" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Segoe UI Light" />
             <Setter Property="FontSize" Value="18" />
@@ -17,7 +20,8 @@
             <Setter Property="FontStyle" Value="Italic" />
         </Style>
         <DataTemplate x:Key="FiguurTemplate">
-            <StackPanel Orientation="Horizontal" Margin="10">
+            <local:FiguurDetails/>
+            <!--<StackPanel Orientation="Horizontal" Margin="10">
                 <Image Source="{Binding Prentje}"  
                        Height="60" Width="60" Margin="0,0,10,0"/>
                 <StackPanel Margin="0,0,0,0" Orientation="Vertical" 
@@ -27,7 +31,7 @@
                     <TextBlock TextWrapping="Wrap" Text="{Binding Email}" 
                                Style="{StaticResource FiguurEmailStyle}"/>
                 </StackPanel>
-            </StackPanel>
+            </StackPanel>-->
         </DataTemplate>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -41,7 +45,7 @@
                   SelectionMode="Multiple"
                   />-->
 
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -50,14 +54,32 @@
             <TextBlock x:Name="GeselecteerdeFiguur" Padding="20 0 0 5"  
                    Width="600" Height="50" 
                    Style="{StaticResource FiguurNaamStyle}"/>
-            <Button x:Name="ButtonVerwijderen" Content="Verwijderen" VerticalAlignment="Top"  
-                    Click="Button_Click" Visibility="Collapsed"/>
-        </StackPanel>
-        <GridView x:Name="StripGridView" Width="800" Height="300" Grid.Row="1" 
+            --><!--<Button x:Name="ButtonVerwijderen" Content="Verwijderen" VerticalAlignment="Top"  
+                    Click="Button_Click" Visibility="Collapsed"/>--><!--
+        </StackPanel>-->
+        <!--<GridView x:Name="StripGridView" Width="800" Height="300" Grid.Row="1" 
                   VerticalAlignment="Top" SelectionMode="Single" 
                   ItemTemplate="{StaticResource FiguurTemplate}" 
                   ScrollViewer.HorizontalScrollBarVisibility="Auto" 
                   BorderBrush="White" BorderThickness="2"  
-                  SelectionChanged="StripGridView_SelectionChanged"/>
+                  SelectionChanged="StripGridView_SelectionChanged"/>-->
+        <GridView x:Name="GroupedFigurenGridView" SelectionMode="Single" 
+                  VerticalAlignment="Center" HorizontalAlignment="Center" 
+                  ItemTemplate="{StaticResource FiguurTemplate}"  
+                  ItemsPanel="{StaticResource GridViewItemsPanel}" 
+                  BorderBrush="White" BorderThickness="2" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <GridView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text='{Binding ReeksNaam}' Foreground="White" 
+                                       FontSize="25" Margin="5" />
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </GridView.GroupStyle>
+        </GridView>
     </Grid>
 </Page>

@@ -8,6 +8,7 @@ namespace StripFigurenApp
 {
    public  class StripFiguur
     {
+       public string Reeks { get; set; }
        public string Naam { get; set; }
        public string Email { get; set; }
        public ImageSource Prentje { get; set; }

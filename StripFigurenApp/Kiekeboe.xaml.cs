@@ -20,26 +20,11 @@ namespace StripFigurenApp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class Kiekeboe : Page
     {
-        public MainPage()
+        public Kiekeboe()
         {
             this.InitializeComponent();
-            MainFrame.Navigate(typeof(Home));
         }
-
-        private void Volgende_click(object sender, RoutedEventArgs e)
-        {
-            if (MainFrame.CanGoForward)
-                MainFrame.GoForward();
-        }
-
-        private void vorige_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainFrame.CanGoBack)
-                MainFrame.GoBack();
-        }
-
-      
     }
 }

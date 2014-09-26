@@ -20,26 +20,22 @@ namespace StripFigurenApp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class Home : Page
     {
-        public MainPage()
+        public Home()
         {
             this.InitializeComponent();
-            MainFrame.Navigate(typeof(Home));
         }
-
-        private void Volgende_click(object sender, RoutedEventArgs e)
+        private void Image_Tapped(object sender,TappedRoutedEventArgs e)
         {
-            if (MainFrame.CanGoForward)
-                MainFrame.GoForward();
-        }
+            string tag = ((StackPanel)sender).Tag.ToString();
 
-        private void vorige_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainFrame.CanGoBack)
-                MainFrame.GoBack();
+            if (tag == "SuskeEnWiske")
+                this.Frame.Navigate(typeof(SuskeEnWiske));
+            else if (tag == "Kiekeboe")
+                this.Frame.Navigate(typeof(Kiekeboe));
+            else
+                this.Frame.Navigate(typeof(Asterix));
         }
-
-      
     }
 }
