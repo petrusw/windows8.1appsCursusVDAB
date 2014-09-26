@@ -11,17 +11,18 @@
             <local:FiguurDetails />
         </DataTemplate>
     </Page.Resources>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="SuskeEnWiskeGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Suske en Wiske figuren" VerticalAlignment="Bottom" 
-                   Margin="50,0,0,40" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                   Margin="50,0,0,40" Style="{ThemeResource HeaderTextBlockStyle}"
+                   RightTapped="Title_RightTapped" />
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <GridView x:Name="FiguurGridView" Margin="50 0 0 0" Width="300" 
                       ItemTemplate="{StaticResource FiguurTemplate}" />
-            <TextBox FontSize="20" TextWrapping="Wrap"  
+            <TextBox x:Name="Info" FontSize="20" TextWrapping="Wrap"  
                      Width="600" Height="400" VerticalAlignment="Top">
                 <TextBox.Text>
                     Suske en Wiske is een Vlaamse stripreeks die bedacht en getekend 

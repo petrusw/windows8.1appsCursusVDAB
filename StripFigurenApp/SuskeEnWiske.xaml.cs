@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -50,5 +52,28 @@ namespace StripFigurenApp
             FiguurGridView.ItemsSource = SuskeEnWiskes;
             SorteerButton.Flyout.Hide(); 
         }
+
+        private async void Title_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            PopupMenu p = new PopupMenu();
+            p.Commands.Add(new UICommand("Background gray", command =>
+                {
+                    SuskeEnWiskeGrid.Background = new SolidColorBrush(Colors.LightGray);
+                }, 0));
+            p.Commands.Add(new UICommand("Background black", command =>
+            {
+                SuskeEnWiskeGrid.Background = new SolidColorBrush(Colors.Black);
+            }, 1));
+            await p.ShowForSelectionAsync(
+               GetSenderRectangle((FrameworkElement)sender), Placement.Below); 
+        }
+        public static Rect GetSenderRectangle(FrameworkElement element)
+        {
+            GeneralTransform transform = element.TransformToVisual(null);
+            Point point = transform.TransformPoint(new Point());
+            Rect finalRect = new Rect(point, new Size(element.ActualWidth,
+               element.ActualHeight));
+            return finalRect;
+        } 
     }
 }

@@ -41,8 +41,8 @@ namespace StripFigurenApp
                 Reeks = "Suske en Wiske",
                 Naam = "Suske",
                 Email = "suske@standaard.be",
-                //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/suske.jpg",
-                //  UriKind.RelativeOrAbsolute))
+                //Prentje = new BitmapImage(new Uri(,"ms‐appx:///Assets/suske.jpg"
+                 //))
             });
 
             Helden.Add(new StripFiguur
