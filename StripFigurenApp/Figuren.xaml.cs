@@ -119,7 +119,30 @@ namespace StripFigurenApp
             XmlNodeList text = template.GetElementsByTagName("text");
             text[0].AppendChild(template.CreateTextNode(naam));
             ToastNotification toast = new ToastNotification(template);
-            ToastNotificationManager.CreateToastNotifier().Show(toast); 
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
+
+            //XmlDocument tileTemplate = TileUpdateManager.GetTemplateContent(
+            //TileTemplateType.TileWide310x150ImageAndText01);
+            //XmlNodeList tileText = tileTemplate.GetElementsByTagName("text");
+            //tileText[0].InnerText = "Geselecteerde figuur : " + naam;
+            //XmlNodeList tileImage = tileTemplate.GetElementsByTagName("image");
+            //((XmlElement)tileImage[0]).SetAttribute("src",
+            //"ms‐appx:///Assets/potloodlivetile.jpg");
+
+            //TileNotification notification = new TileNotification(tileTemplate);
+            //notification.ExpirationTime = DateTimeOffset.UtcNow.AddSeconds(10);
+            //TileUpdater tileUpdater = TileUpdateManager.CreateTileUpdaterForApplication();
+            //tileUpdater.Update(notification); 
+
+            XmlDocument tileTemplate2 = TileUpdateManager.GetTemplateContent(
+                TileTemplateType.TileSquare150x150Text02);
+            XmlNodeList tileText2 = tileTemplate2.GetElementsByTagName("text");
+            tileText2[0].InnerText = naam;
+            //tileText2[1].InnerText = email;
+
+            TileNotification notification2 = new TileNotification(tileTemplate2);
+            notification2.ExpirationTime = DateTimeOffset.UtcNow.AddSeconds(10);
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(notification2); 
         }
 
         //private void StripGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)

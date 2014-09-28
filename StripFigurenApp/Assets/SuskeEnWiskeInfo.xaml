@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="StripFigurenApp.SuskeEnWiskeInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StripFigurenApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="printableArea">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" x:Name="header" Margin="0 0 0 25">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Source="Assets/suskewiskereeks2.jpg" Height="200" VerticalAlignment="Center"/>
+            <RichTextBlock Margin="20,0,0,0" Foreground="Black" FontSize="36"
+                           Grid.Column="1" VerticalAlignment="Center">
+                <Paragraph>Suske en Wiske</Paragraph>
+            </RichTextBlock>
+            <TextBlock Text="Windows 8 Store apps - Printing voorbeeld" Foreground="Black" 
+                       HorizontalAlignment="Right" Margin="0 20 20 0" Grid.Column="2"/>
+        </Grid>
+
+        <RichTextBlock x:Name="TekstContent" OverflowContentTarget="{Binding ElementName=firstLinkedContainer}" Foreground="Black"  Grid.Row="1" Style="{ThemeResource BodyRichTextBlockStyle}">
+            <Paragraph>Suske - Een verre nazaat van Sus Antigoon die eigenlijk François heet. Oorspronkelijk woonde hij op het eiland Amoras, maar tante Sidonia adopteerde hem in haar gezin. In zijn allereerste verhaal Het eiland Amoras is hij een schaars geklede woesteling, die volledig uit zijn vel springt wanneer iemand "Seefhoek vooruit" roept (in latere herdruk wordt dit veranderd in "Antigoon vooruit"). In vrijwel alle andere verhalen is hij een doorsneejongen zonder kleurrijk karakter. Hij is echter wel moedig, idealistisch, trouw en ook tamelijk sterk.</Paragraph>
+            <Paragraph></Paragraph>
+            <Paragraph>Wiske - Een meisje dat door haar tante Sidonia wordt opgevoed, wie haar ouders zijn of wat daarmee is gebeurd is tot op heden onbekend. In tegenstelling tot wat veel mensen denken zijn Suske en Wiske geen broer en zus; dit verklaart ook ten dele waarom Wiske vaak jaloers is als Suske aandacht krijgt van andere meisjes. Toch zijn Suske en Wiske ook niet echt verliefd op elkaar, want in veel situaties gedragen ze zich als gewone vrienden. Wiske is intelligent, maar ook nieuwsgierig, jaloers en soms ijdel. Toch kan ze wanneer het moet deze gebreken ook opzijzetten en haar goede hart tonen.</Paragraph>
+            <Paragraph></Paragraph>
+            <Paragraph>Schanulleke - Wiskes lappenpopje waar ze zielsveel van houdt. Aanvankelijk heette ze in België Schalulleke en in Nederland Schabolleke. Haar huidige naam kreeg ze in De schone slaper.</Paragraph>
+            <Paragraph></Paragraph>
+            <Paragraph>Tante Sidonia - Wiskes tante, die in veel verhalen min of meer de bijrol van adoptiemoeder van zowel Suske als Wiske vervult, maar soms (met name in de oudere verhalen) zelf ook heel actief meespeelt. Ze is een lange, magere vrouw die haar mannetje kan staan in noodsituaties. Desondanks wordt het haar soms ook wat te veel en krijgt ze hevige zenuwtoevallen, bijvoorbeeld in De straatridder. Ze lijkt in sommige verhalen heimelijk verliefd op Lambik te zijn en komt daar soms gewoonlijk openlijk voor uit, zoals in De sterrenplukkers. De anderen maken vaak opmerkingen over haar grote voeten en over haar abnormaal lange neus (het laatste wordt door sommige personages in de strip per ongeluk aangezien voor een kapstok).</Paragraph>
+            <Paragraph></Paragraph>
+            <Paragraph>Lambik - Vriend van Suske, Wiske en Sidonia. Dankzij zijn domme, verwaande en ijdele karakter zorgt hij meestal voor de grappigste momenten in de strip. In Nederland heette hij aanvankelijk Lambiek. De naam Lambik is vermoedelijk afgeleid van het Lambiekbier.</Paragraph>
+            <Paragraph></Paragraph>
+            <Paragraph>Jerom - Ook een vriend van Suske, Wiske, Sidonia en Lambik. Hij is een ongelofelijk sterke man die oorspronkelijk uit de prehistorie komt, maar ingevroren zat totdat hij in de 17de eeuw door een kwade hertog werd ontdooid (zie ook Jeroms biografie en familie). In zijn debuutverhaal De dolle musketiers is hij een van de vijanden van Suske, Wiske, Lambik en Sidonia, maar na door Wiske tot het goede te zijn bekeerd (Wiske heeft Schanulleke aan Jerom uitgeleend om mee te spelen) wordt hij meegenomen naar de 20e eeuw via de teletijdmachine. Hij is in volgende verhalen niet altijd even snugger en blijft ongrammaticaal spreken. Ook wordt hij vanwege zijn buitengewone kracht geregeld ontvoerd door mensen die misbruik van hem willen maken, zoals in De circusbaron en De snorrende snor. Hij woont in hetzelfde huis als Lambik, al hebben ze vaak meningsverschillen. Lambik is ook geregeld jaloers op Jerom vanwege diens enorme kracht, waar allerlei vrouwen door worden geïmponeerd. In Nederland heette Jerom vroeger Jeroen of Jeroentje.</Paragraph>
+            <Paragraph></Paragraph>
+            <Paragraph>Professor Barabas - De verstrooide professor die allerlei nieuwe dingen uitvindt die in de verhalen een rol spelen. Zijn beroemdste en vaakst gebruikte uitvinding is de teletijdmachine, waarmee in veel verhalen naar het verleden wordt gereisd. De teletijdmachine van professor Barabas wordt voor het eerst gebruikt in Op het eiland Amoras (toen alleen nog maar om beelden uit het verleden te halen, de eerste maal om de helden naar het verleden te doen reizen was in De tuftuf-club), maar daarvoor waren er ook al verhalen die in het (soms verre) verleden waren gesitueerd, bijvoorbeeld Lambiorix.</Paragraph>
+        </RichTextBlock>
+        <StackPanel x:Name="footer"  Grid.Row="2" VerticalAlignment="Top" Visibility="Visible">
+            <RichTextBlock Foreground="Black" FontSize="16" TextAlignment="Left" FontFamily="Segoe UI">
+                <Paragraph>Copyright © VDAB 2013</Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+    </Grid>
+</Page>
