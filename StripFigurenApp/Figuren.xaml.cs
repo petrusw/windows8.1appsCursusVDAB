@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Media.Imaging;
 using System.Collections.ObjectModel;
+using Windows.Data.Xml.Dom;
+using Windows.UI.Notifications;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace StripFigurenApp
@@ -108,6 +110,16 @@ namespace StripFigurenApp
       var groupedFiguren = Helden.GroupBy(x => x.Reeks).Select(x => new StripReeks { ReeksNaam = x.Key, Figuren = x.ToList() });
       StripFiguurCollectie.Source = groupedFiguren.ToList();
       GroupedFigurenGridView.ItemsSource = StripFiguurCollectie.View;
+        }
+
+        private void FiguurDetails_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            string naam = ((StripFiguur)((FiguurDetails)sender).DataContext).Naam;
+            XmlDocument template = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText01);
+            XmlNodeList text = template.GetElementsByTagName("text");
+            text[0].AppendChild(template.CreateTextNode(naam));
+            ToastNotification toast = new ToastNotification(template);
+            ToastNotificationManager.CreateToastNotifier().Show(toast); 
         }
 
         //private void StripGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)

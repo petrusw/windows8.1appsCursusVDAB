@@ -20,7 +20,7 @@
             <Setter Property="FontStyle" Value="Italic" />
         </Style>
         <DataTemplate x:Key="FiguurTemplate">
-            <local:FiguurDetails/>
+            <local:FiguurDetails Tapped="FiguurDetails_Tapped"/>
             <!--<StackPanel Orientation="Horizontal" Margin="10">
                 <Image Source="{Binding Prentje}"  
                        Height="60" Width="60" Margin="0,0,10,0"/>

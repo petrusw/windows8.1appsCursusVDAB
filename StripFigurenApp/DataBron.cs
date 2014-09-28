@@ -18,10 +18,7 @@ namespace StripFigurenApp
                 Reeks = "Asterix",
                 Naam = "Asterix",
                 Email = "asterix@armorica.ga",
-                // volgens de cursus moet het op deze manier maar dit kan niet volgens microsoft !!! 
-                //Prentje = new BitmapImage(new Uri("ms‐appx:///Assets/Asterix.jpg",  
-                //  UriKind.RelativeOrAbsolute)) 
-                // Dit is de juiste manier om dit te doen
+                //goed opletten dat het - teken in ms-appx herkent word!!!!
                 Prentje = new BitmapImage(new Uri("ms-appx:///Assets/Asterix.jpg"))
             });
 
@@ -63,7 +60,7 @@ namespace StripFigurenApp
                 Reeks = "Suske en Wiske",
                 Naam = "Sidonia",
                 Email = "Sidonia@standaard.be",
-                Prentje = new BitmapImage(new Uri("ms-appx:///Assets/sidonia.jpg"))
+                Prentje = new BitmapImage(new Uri("ms-appx:///Assets/sidonia.jpg",UriKind.RelativeOrAbsolute))
             });
 
             Helden.Add(new StripFiguur
